@@ -16,6 +16,7 @@ ext {
 dependencies {
     implementation "org.asciidoctor:asciidoctorj:${asciidoctorjVersion}"
     implementation "org.asciidoctor:asciidoctorj-pdf:1.5.4"
+    implementation "org.jruby:jruby-core:9.2.17.0"
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
