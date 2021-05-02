@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = "5.7.1"
+    asciidoctorjVersion = "2.5.0"
+//    asciidoctorjVersion = "2.4.3"
+}
+
+dependencies {
+    implementation "org.asciidoctor:asciidoctorj:${asciidoctorjVersion}"
+    implementation "org.asciidoctor:asciidoctorj-pdf:1.5.4"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+
+//    implementation project(':utilities')
+}
+
+application {
+    mainClass = 'asciidoctorj.perf.app.App'
+}
+

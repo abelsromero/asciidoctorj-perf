@@ -1,0 +1,9 @@
+= Asciidoctorj performance tester
+
+== Build & run
+
+Just run script in root
+
+ $ ./loop.sh | grep ","
+
+This display times.
