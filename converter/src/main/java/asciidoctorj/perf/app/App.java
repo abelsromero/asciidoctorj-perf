@@ -8,7 +8,7 @@ public class App {
             System.out.println("Usage:\n\t$ converter [BACKEND] [SOURCE_FILE]");
             System.exit(1);
         }
-        converter.convert(args[1], args[0]);
+        converter.convert(args[0], args[1]);
     }
     
 }

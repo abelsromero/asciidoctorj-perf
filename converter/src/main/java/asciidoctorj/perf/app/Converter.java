@@ -9,10 +9,9 @@ import java.io.File;
 
 class Converter {
 
-    public void convert(String sourcePath, String backend) {
-        
+    public void convert(String backend, String sourcePath) {
         long start = System.currentTimeMillis();
-        
+
         Asciidoctor asciidoctor = Asciidoctor.Factory.create();
 
         AttributesBuilder attributes = AttributesBuilder.attributes();
@@ -26,6 +25,7 @@ class Converter {
         options.toDir(new File("build"));
 
         asciidoctor.convertFile(new File(sourcePath), options);
-        System.out.println("Conversion time: "+(System.currentTimeMillis()-start));
+        
+        System.out.println(Float.valueOf(System.currentTimeMillis() - start)/1000);
     }
 }

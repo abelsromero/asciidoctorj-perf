@@ -9,8 +9,10 @@ repositories {
 
 ext {
     junitVersion = "5.7.1"
-    asciidoctorjVersion = "2.5.0"
-//    asciidoctorjVersion = "2.4.3"
+    // Uses concurrent-ruby 1.1.8 (slower)
+//    asciidoctorjVersion = "2.5.0"
+    // Uses concurrent-ruby 1.1.7
+//     asciidoctorjVersion = "2.5.1"
 }
 
 dependencies {
@@ -20,8 +22,6 @@ dependencies {
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
-
-//    implementation project(':utilities')
 }
 
 application {

@@ -1,9 +1,34 @@
 = Asciidoctorj performance tester
+:icons: font
+ifdef::env-github[]
+:important-caption: :exclamation:
+endif::[]
 
-== Build & run
+Project to reproduce performance regression in Asciidoctorj when using concurrent-ruby 1.1.8 vs 1.1.7.
+Overall there's a huge increase in time when using the newer.
+This does not seem to happen when using normal Ruby and some quick analysis points to `Ruby.evalScriptlet` method.
+
+For details: https://github.com/asciidoctor/asciidoctorj/issues/1032.
+
+To reproduce alternate between versions of Asciidoctorj (which bundles the gems) in `converter/build.gradle` 
+and run `runner-java.sh` to obtain results.
+
+IMPORTANT: Number format (using , or .) in output files may change depending on machine configuration.
+
+== Running Asciidoctorj over jRuby
 
 Just run script in root
 
- $ ./loop.sh | grep ","
+ $ ./runner-java.sh | grep ","
 
-This display times.
+This will generate 2 output files
+* `output_java.txt`: with a row for each conversion in seconds.
+* `output_java_total.txt`: with a row for each total time (jvm init + conversion) in seconds. 
+
+== Running Asciidoctor over Ruby
+
+Just run script in root
+
+ $ ./runner-ruby.sh
+
+This will generate an output file (`output_ruby.txt`) with a row for each timing.
