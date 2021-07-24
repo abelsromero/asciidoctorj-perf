@@ -12,7 +12,7 @@ ext {
     // Uses concurrent-ruby 1.1.8 (slower)
 //    asciidoctorjVersion = "2.5.0"
     // Uses concurrent-ruby 1.1.7
-//     asciidoctorjVersion = "2.5.1"
+     asciidoctorjVersion = "2.5.1"
 }
 
 dependencies {

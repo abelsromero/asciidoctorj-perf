@@ -5,7 +5,7 @@ ifdef::env-github[]
 endif::[]
 
 Project to reproduce performance regression in Asciidoctorj when using concurrent-ruby 1.1.8 vs 1.1.7.
-Overall there's a huge increase in time when using the newer.
+Overall there's a huge increase in time when using the newer version.
 This does not seem to happen when using normal Ruby and some quick analysis points to `Ruby.evalScriptlet` method.
 
 For details: https://github.com/asciidoctor/asciidoctorj/issues/1032.
@@ -19,16 +19,19 @@ IMPORTANT: Number format (using , or .) in output files may change depending on 
 
 Just run script in root
 
- $ ./runner-java.sh | grep ","
+ $ ./runner-java.sh
 
 This will generate 2 output files
-* `output_java.txt`: with a row for each conversion in seconds.
-* `output_java_total.txt`: with a row for each total time (jvm init + conversion) in seconds. 
+
+* `${TIMESTAMP}_java_convert_times.txt`: times for AsciidoctorJ conversion times in seconds.
+* `${TIMESTAMP}_java_total_jvm_times.txt`: total time, including jvm initialization + conversion, in seconds. 
 
 == Running Asciidoctor over Ruby
+
+NOTE: For comparison, Ruby conversions test but not relevant for the Java timing issues.
 
 Just run script in root
 
  $ ./runner-ruby.sh
 
-This will generate an output file (`output_ruby.txt`) with a row for each timing.
+This will generate an output file (`${TIMESTAMP}_ruby_times.txt`) with a row for each timing.
